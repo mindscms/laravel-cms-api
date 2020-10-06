@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\PostMedia;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
@@ -124,8 +125,9 @@ class UsersController extends Controller
 
     public function create_post()
     {
+        $tags = Tag::pluck('name', 'id');
         $categories = Category::whereStatus(1)->pluck('name', 'id');
-        return view('frontend.users.create_post', compact('categories'));
+        return view('frontend.users.create_post', compact('categories', 'tags'));
     }
 
     public function store_post(Request $request)
@@ -136,6 +138,7 @@ class UsersController extends Controller
             'status'        => 'required',
             'comment_able'  => 'required',
             'category_id'   => 'required',
+            'tags.*'        => 'required',
         ]);
         if($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
@@ -169,8 +172,23 @@ class UsersController extends Controller
             }
         }
 
+        if (count($request->tags) > 0) {
+            $new_tags = [];
+            foreach ($request->tags as $tag) {
+                $tag = Tag::firstOrCreate([
+                    'id' => $tag
+                ], [
+                    'name' => $tag
+                ]);
+
+                $new_tags[] = $tag->id;
+            }
+            $post->tags()->sync($new_tags);
+        }
+
         if ($request->status == 1) {
             Cache::forget('recent_posts');
+            Cache::forget('global_tags');
         }
 
         return redirect()->back()->with([
@@ -186,8 +204,9 @@ class UsersController extends Controller
         $post = Post::whereSlug($post_id)->orWhere('id', $post_id)->whereUserId(auth()->id())->first();
 
         if ($post) {
+            $tags = Tag::pluck('name', 'id');
             $categories = Category::whereStatus(1)->pluck('name', 'id');
-            return view('frontend.users.edit_post', compact('post', 'categories'));
+            return view('frontend.users.edit_post', compact('post', 'categories', 'tags'));
         }
 
         return redirect()->route('frontend.index');
@@ -201,6 +220,7 @@ class UsersController extends Controller
             'status'        => 'required',
             'comment_able'  => 'required',
             'category_id'   => 'required',
+            'tags.*'        => 'required',
         ]);
         if($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
@@ -234,6 +254,20 @@ class UsersController extends Controller
                     ]);
                     $i++;
                 }
+            }
+
+            if (count($request->tags) > 0) {
+                $new_tags = [];
+                foreach ($request->tags as $tag) {
+                    $tag = Tag::firstOrCreate([
+                        'id' => $tag
+                    ], [
+                        'name' => $tag
+                    ]);
+
+                    $new_tags[] = $tag->id;
+                }
+                $post->tags()->sync($new_tags);
             }
 
             return redirect()->back()->with([

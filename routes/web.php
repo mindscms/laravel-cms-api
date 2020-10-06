@@ -42,8 +42,8 @@ Route::post('email/resend',                     [VerificationController::class, 
 
 Route::group(['middleware' => 'verified', 'as' => 'users.'], function () {
     Route::get('/dashboard',                    [FrontendUsersController::class, 'index'])->name('dashboard');
-    Route::any('user/notifications/get',        [FrontendNotificationsController::class, 'getNotifications']);
-    Route::any('user/notifications/read',       [FrontendNotificationsController::class, 'markAsRead']);
+    Route::any('/user/notifications/get',        [FrontendNotificationsController::class, 'getNotifications']);
+    Route::any('/user/notifications/read',       [FrontendNotificationsController::class, 'markAsRead']);
     Route::get('/edit-info',                    [FrontendUsersController::class, 'edit_info'])->name('edit_info');
     Route::post('/edit-info',                   [FrontendUsersController::class, 'update_info'])->name('update_info');
     Route::post('/edit-password',               [FrontendUsersController::class, 'update_password'])->name('update_password');
@@ -87,6 +87,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
 Route::get('/contact-us',                       [IndexController::class, 'contact'])->name('frontend.contact');
 Route::post('/contact-us',                      [IndexController::class, 'do_contact'])->name('frontend.do_contact');
 Route::get('/category/{category_slug}',         [IndexController::class, 'category'])->name('frontend.category.posts');
+Route::get('/tag/{tag_slug}',                   [IndexController::class, 'tag'])->name('frontend.tag.posts');
 Route::get('/archive/{date}',                   [IndexController::class, 'archive'])->name('frontend.archive.posts');
 Route::get('/author/{username}',                [IndexController::class, 'author'])->name('frontend.author.posts');
 Route::get('/search',                           [IndexController::class, 'search'])->name('frontend.search');
