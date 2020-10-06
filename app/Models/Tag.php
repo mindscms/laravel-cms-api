@@ -5,11 +5,13 @@ namespace App\Models;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 class Tag extends Model
 {
     use HasFactory;
     use Sluggable;
+    use SearchableTrait;
 
     protected $guarded = [];
 
@@ -21,6 +23,14 @@ class Tag extends Model
             ]
         ];
     }
+
+    protected $searchable = [
+        'columns'   => [
+            'tags.name'         => 10,
+            'tags.slug'         => 10,
+        ],
+    ];
+
 
     public function posts()
     {

@@ -15,6 +15,7 @@ use App\Http\Controllers\Backend\PostsController;
 use App\Http\Controllers\Backend\PagesController;
 use App\Http\Controllers\Backend\PostCommentsController;
 use App\Http\Controllers\Backend\PostCategoriesController;
+use App\Http\Controllers\Backend\PostTagsController;
 use App\Http\Controllers\Backend\ContactUsController;
 use App\Http\Controllers\Backend\UsersController as BackendUsersController;
 use App\Http\Controllers\Backend\SupervisorsController;
@@ -75,6 +76,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
         Route::resource('pages',                    PagesController::class);
         Route::resource('post_comments',            PostCommentsController::class);
         Route::resource('post_categories',          PostCategoriesController::class);
+        Route::resource('post_tags',                PostTagsController::class);
         Route::resource('contact_us',               ContactUsController::class);
         Route::post('/users/removeImage',           [BackendUsersController::class, 'removeImage'])->name('users.remove_image');
         Route::resource('users',                    BackendUsersController::class);

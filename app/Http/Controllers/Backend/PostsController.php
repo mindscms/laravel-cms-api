@@ -35,6 +35,7 @@ class PostsController extends Controller
 
         $keyword = (isset(\request()->keyword) && \request()->keyword != '') ? \request()->keyword : null;
         $categoryId = (isset(\request()->category_id) && \request()->category_id != '') ? \request()->category_id : null;
+        $tagId = (isset(\request()->tag_id) && \request()->tag_id != '') ? \request()->tag_id : null;
         $status = (isset(\request()->status) && \request()->status != '') ? \request()->status : null;
         $sort_by = (isset(\request()->sort_by) && \request()->sort_by != '') ? \request()->sort_by : 'id';
         $order_by = (isset(\request()->order_by) && \request()->order_by != '') ? \request()->order_by : 'desc';
@@ -46,6 +47,11 @@ class PostsController extends Controller
         }
         if ($categoryId != null) {
             $posts = $posts->whereCategoryId($categoryId);
+        }
+        if ($tagId != null) {
+            $posts = $posts->whereHas('tags', function ($query) use ($tagId) {
+                $query->where('id', $tagId);
+            });
         }
         if ($status != null) {
             $posts = $posts->whereStatus($status);
