@@ -15,6 +15,7 @@ use App\Http\Controllers\Backend\PostsController;
 use App\Http\Controllers\Backend\PagesController;
 use App\Http\Controllers\Backend\PostCommentsController;
 use App\Http\Controllers\Backend\PostCategoriesController;
+use App\Http\Controllers\Backend\PostTagsController;
 use App\Http\Controllers\Backend\ContactUsController;
 use App\Http\Controllers\Backend\UsersController as BackendUsersController;
 use App\Http\Controllers\Backend\SupervisorsController;
@@ -42,8 +43,8 @@ Route::post('email/resend',                     [VerificationController::class, 
 
 Route::group(['middleware' => 'verified', 'as' => 'users.'], function () {
     Route::get('/dashboard',                    [FrontendUsersController::class, 'index'])->name('dashboard');
-    Route::any('user/notifications/get',        [FrontendNotificationsController::class, 'getNotifications']);
-    Route::any('user/notifications/read',       [FrontendNotificationsController::class, 'markAsRead']);
+    Route::any('/user/notifications/get',        [FrontendNotificationsController::class, 'getNotifications']);
+    Route::any('/user/notifications/read',       [FrontendNotificationsController::class, 'markAsRead']);
     Route::get('/edit-info',                    [FrontendUsersController::class, 'edit_info'])->name('edit_info');
     Route::post('/edit-info',                   [FrontendUsersController::class, 'update_info'])->name('update_info');
     Route::post('/edit-password',               [FrontendUsersController::class, 'update_password'])->name('update_password');
@@ -75,6 +76,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
         Route::resource('pages',                    PagesController::class);
         Route::resource('post_comments',            PostCommentsController::class);
         Route::resource('post_categories',          PostCategoriesController::class);
+        Route::resource('post_tags',                PostTagsController::class);
         Route::resource('contact_us',               ContactUsController::class);
         Route::post('/users/removeImage',           [BackendUsersController::class, 'removeImage'])->name('users.remove_image');
         Route::resource('users',                    BackendUsersController::class);
@@ -87,6 +89,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
 Route::get('/contact-us',                       [IndexController::class, 'contact'])->name('frontend.contact');
 Route::post('/contact-us',                      [IndexController::class, 'do_contact'])->name('frontend.do_contact');
 Route::get('/category/{category_slug}',         [IndexController::class, 'category'])->name('frontend.category.posts');
+Route::get('/tag/{tag_slug}',                   [IndexController::class, 'tag'])->name('frontend.tag.posts');
 Route::get('/archive/{date}',                   [IndexController::class, 'archive'])->name('frontend.archive.posts');
 Route::get('/author/{username}',                [IndexController::class, 'author'])->name('frontend.author.posts');
 Route::get('/search',                           [IndexController::class, 'search'])->name('frontend.search');

@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Permission;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
@@ -71,6 +72,15 @@ class ViewServiceProvider extends ServiceProvider
                 }
                 $global_categories = Cache::get('global_categories');
 
+                if (!Cache::has('global_tags')) {
+                    $global_tags = Tag::withCount('posts')->get();
+
+                    Cache::remember('global_tags', 3600, function () use ($global_tags){
+                        return $global_tags;
+                    });
+                }
+                $global_tags = Cache::get('global_tags');
+
 
                 if (!Cache::has('global_archives')) {
                     $global_archives = Post::whereStatus(1)->orderBy('created_at', 'desc')
@@ -89,6 +99,7 @@ class ViewServiceProvider extends ServiceProvider
                     'recent_posts' => $recent_posts,
                     'recent_comments' => $recent_comments,
                     'global_categories' => $global_categories,
+                    'global_tags' => $global_tags,
                     'global_archives' => $global_archives,
                 ]);
 
