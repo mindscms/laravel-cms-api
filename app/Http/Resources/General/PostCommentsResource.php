@@ -2,10 +2,9 @@
 
 namespace App\Http\Resources\General;
 
-use App\Models\Post;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class TagsResource extends JsonResource
+class PostCommentsResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,9 +16,11 @@ class TagsResource extends JsonResource
     {
         return [
             'name'          => $this->name,
-            'slug'          => $this->slug,
-            'url'           => route('frontend.tag.posts', $this->slug),
-            'posts_count'   => $this->posts->count(),
+            'url'           => $this->url,
+            'comment'       => $this->comment,
+            'status'        => $this->status(),
+            'author_type'   => $this->user_id != '' ? 'Member' : 'Guest',
+            'create_date'   => $this->created_at->format('d-m-Y h:i a'),
         ];
     }
 }

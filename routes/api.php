@@ -10,3 +10,4 @@ Route::get('/chart/users_chart',        [ApiController::class, 'users_chart']);
 
 /***** API ************************************/
 Route::get('/all_posts',                [GeneralController::class, 'get_posts']);
+Route::get('/post/{slug}',              [GeneralController::class, 'show_post']);
