@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Nicolaslopezj\Searchable\SearchableTrait;
@@ -36,6 +37,5 @@ class Tag extends Model
     {
         return $this->belongsToMany(Tag::class, 'posts_tags');
     }
-
 
 }

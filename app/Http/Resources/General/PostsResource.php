@@ -4,7 +4,7 @@ namespace App\Http\Resources\General;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PostResource extends JsonResource
+class PostsResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -27,7 +27,6 @@ class PostResource extends JsonResource
             'tags'              => TagsResource::collection($this->tags),
             'media'             => PostsMediaResource::collection($this->media),
             'comments_count'    => $this->comments->where('status', 1)->count(),
-            'comments'          => PostCommentsResource::collection($this->approved_comments),
 
         ];
     }

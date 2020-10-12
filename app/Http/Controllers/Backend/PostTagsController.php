@@ -3,11 +3,9 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
 class PostTagsController extends Controller
@@ -106,7 +104,7 @@ class PostTagsController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        $tag = tag::whereId($id)->first();
+        $tag = Tag::whereId($id)->first();
 
         if ($tag) {
             $data['name']               = $request->name;

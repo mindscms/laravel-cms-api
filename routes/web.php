@@ -40,7 +40,6 @@ Route::get('email/verify',                      [VerificationController::class, 
 Route::get('/email/verify/{id}/{hash}',         [VerificationController::class, 'verify'])->name('verification.verify');
 Route::post('email/resend',                     [VerificationController::class, 'resend'])->name('verification.resend');
 
-
 Route::group(['middleware' => 'verified', 'as' => 'users.'], function () {
     Route::get('/dashboard',                    [FrontendUsersController::class, 'index'])->name('dashboard');
     Route::any('/user/notifications/get',        [FrontendNotificationsController::class, 'getNotifications']);
@@ -95,3 +94,6 @@ Route::get('/author/{username}',                [IndexController::class, 'author
 Route::get('/search',                           [IndexController::class, 'search'])->name('frontend.search');
 Route::get('/{post}',                           [IndexController::class, 'post_show'])->name('frontend.posts.show');
 Route::post('/{post}',                          [IndexController::class, 'store_comment'])->name('frontend.posts.add_comment');
+
+
+
