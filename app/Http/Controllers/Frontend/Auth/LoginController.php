@@ -61,9 +61,27 @@ class LoginController extends Controller
     {
 
         if ($user->status == 1) {
+            if ($request->wantsJson()){
+                $token = $user->createToken('access_token')->accessToken;
+
+                return response()->json([
+                    'errors' => false,
+                    'message' => 'Logged in successfully.',
+                    'token' => $token,
+                ]);
+            }
+
             return redirect()->route('users.dashboard')->with([
                 'message' => 'Logged in successfully.',
                 'alert-type' => 'success'
+            ]);
+        }
+
+
+        if ($request->wantsJson()){
+            return response()->json([
+                'errors' => false,
+                'message' => 'Please contact Bloggi Admin.',
             ]);
         }
 
