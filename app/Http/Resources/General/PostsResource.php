@@ -3,6 +3,7 @@
 namespace App\Http\Resources\General;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Auth;
 
 class PostsResource extends JsonResource
 {
