@@ -23,12 +23,24 @@ Route::post('refresh_token',                    [AuthController::class, 'refresh
 
 
 Route::group(['middleware' => ['auth:api']], function () {
+    Route::get('/user_information',             [UsersController::class, 'user_information']);
+    Route::patch('/edit_user_information',      [UsersController::class, 'update_user_information']);
+    Route::patch('/edit_user_password',         [UsersController::class, 'update_user_password']);
+
+
     Route::get('/my_posts',                     [UsersController::class, 'my_posts']);
     Route::get('/my_posts/create',              [UsersController::class, 'create_post']);
     Route::post('/my_posts/create',             [UsersController::class, 'store_post']);
     Route::get('/my_posts/{post}/edit',         [UsersController::class, 'edit_post']);
     Route::patch('/my_posts/{post}/edit',       [UsersController::class, 'update_post']);
     Route::delete('/my_posts/{post}',           [UsersController::class, 'delete_post']);
+    Route::post('/delete_post_media/{media_id}',[UsersController::class, 'delete_post_media']);
+
+    Route::get('/all_comments',                 [UsersController::class, 'all_comments']);
+    Route::get('/comments/{id}/edit',           [UsersController::class, 'edit_comment']);
+    Route::patch('/comments/{id}/edit',         [UsersController::class, 'update_comment']);
+    Route::delete('/comments/{id}',             [UsersController::class, 'delete_comment']);
+
 
 
     Route::post('logout',                       [UsersController::class, 'logout']);

@@ -25,9 +25,9 @@
     <list default="true" id="002c99af-ee21-40bb-a13a-e170afd8d80c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Users/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Users/UsersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/General/PostsResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/General/PostsResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Users/UsersPostCommentsResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Users/UsersPostCommentsResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/users/sami.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/users/sami.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,7 +271,7 @@
       <workItem from="1601501909463" duration="9000" />
       <workItem from="1601643424892" duration="15035000" />
       <workItem from="1601687906770" duration="67425000" />
-      <workItem from="1602714283013" duration="7270000" />
+      <workItem from="1602714283013" duration="11122000" />
     </task>
     <servers />
   </component>
@@ -299,10 +299,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="760" y="52" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602718441624" />
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602720990195">
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602724906933">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602720990195" />
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602724906933" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1601945994446">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -351,9 +351,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602720765608" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602719755474">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602723870624">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602719755474" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602723870624" />
   </component>
 </project>
