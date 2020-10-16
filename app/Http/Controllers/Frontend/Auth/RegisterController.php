@@ -109,7 +109,6 @@ class RegisterController extends Controller
                 'message' => 'Your account registered successfully, Please check your email to activate your account.',
             ]);
         }
-
         return redirect()->route('frontend.index')->with([
             'message' => 'Your account registered successfully, Please check your email to activate your account.',
             'alert-type' => 'success'

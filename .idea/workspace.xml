@@ -249,7 +249,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/backend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/Api/General" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -262,11 +262,11 @@
       <recent name="C:\xampp\htdocs\laravel\course\mindscms-blog\app\Models" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\laravel\course\mindscms-blog\app\Http\Controllers\Api\General" />
       <recent name="C:\xampp\htdocs\laravel\course\mindscms-blog\resources\views\backend" />
       <recent name="C:\xampp\htdocs\laravel\course\mindscms-blog\public\frontend\js" />
       <recent name="C:\xampp\htdocs\laravel\course\mindscms-blog\public\assets\tmp" />
       <recent name="C:\xampp\htdocs\laravel\course\mindscms-blog\app\Notifications" />
-      <recent name="C:\xampp\htdocs\laravel\course\mindscms-blog\app\Http\Controllers\Backend" />
     </key>
   </component>
   <component name="RunManager">
@@ -296,7 +296,7 @@
       <workItem from="1601317564713" duration="3943000" />
       <workItem from="1601501909463" duration="9000" />
       <workItem from="1601643424892" duration="15035000" />
-      <workItem from="1601687906770" duration="50450000" />
+      <workItem from="1601687906770" duration="66564000" />
     </task>
     <servers />
   </component>
@@ -324,10 +324,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="760" y="74" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602199826546" />
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602251708947">
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602620848662">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602251708947" />
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602620848662" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1601945994446">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -376,9 +376,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600470860170" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602453181281">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602624236621">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602453181281" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602624236621" />
   </component>
 </project>
