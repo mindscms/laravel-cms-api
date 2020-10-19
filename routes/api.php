@@ -15,6 +15,13 @@ Route::get('/chart/users_chart',                [ApiController::class, 'users_ch
 /***** API ************************************/
 Route::get('/all_posts',                        [GeneralController::class, 'get_posts']);
 Route::get('/post/{slug}',                      [GeneralController::class, 'show_post']);
+Route::post('/post/{slug}',                     [GeneralController::class, 'store_comment']);
+Route::get('/search',                           [GeneralController::class, 'search']);
+Route::get('/category/{category_slug}',         [GeneralController::class, 'category']);
+Route::get('/tag/{tag_slug}',                   [GeneralController::class, 'tag']);
+Route::get('/archive/{date}',                   [GeneralController::class, 'archive']);
+Route::get('/author/{username}',                [GeneralController::class, 'author']);
+Route::post('/contact-us',                      [GeneralController::class, 'do_contact']);
 
 
 Route::post('register',                         [AuthController::class, 'register']);
@@ -23,6 +30,9 @@ Route::post('refresh_token',                    [AuthController::class, 'refresh
 
 
 Route::group(['middleware' => ['auth:api']], function () {
+    Route::any('/notifications/get',            [UsersController::class, 'getNotifications']);
+    Route::any('/notifications/read',           [UsersController::class, 'markAsRead']);
+
     Route::get('/user_information',             [UsersController::class, 'user_information']);
     Route::patch('/edit_user_information',      [UsersController::class, 'update_user_information']);
     Route::patch('/edit_user_password',         [UsersController::class, 'update_user_password']);

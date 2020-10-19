@@ -2048,7 +2048,7 @@ __webpack_require__.r(__webpack_exports__);
     getNotifications: function getNotifications() {
       var _this2 = this;
 
-      axios.get('user/notifications/get').then(function (res) {
+      axios.get('/user/notifications/get').then(function (res) {
         _this2.read = res.data.read;
         _this2.unread = res.data.unread;
         _this2.unreadCount = res.data.unread.length;
@@ -2059,7 +2059,7 @@ __webpack_require__.r(__webpack_exports__);
     readNotifications: function readNotifications(notification) {
       var _this3 = this;
 
-      axios.post('user/notifications/read', {
+      axios.post('/user/notifications/read', {
         id: notification.id
       }).then(function (res) {
         _this3.unread.splice(notification, 1);
