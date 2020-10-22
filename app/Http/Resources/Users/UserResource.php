@@ -4,7 +4,7 @@ namespace App\Http\Resources\Users;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class UsersPostCommentsResource extends JsonResource
+class UserResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,14 +15,14 @@ class UsersPostCommentsResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id'            => $this->id,
             'name'          => $this->name,
-            'url'           => $this->url,
-            'comment'       => $this->comment,
+            'email'         => $this->email,
+            'mobile'        => $this->mobile,
+            'user_image'    => $this->userImage(),
             'status'        => $this->status,
             'status_text'   => $this->status(),
-            'author_type'   => $this->user_id != '' ? 'Member' : 'Guest',
-            'create_date'   => $this->created_at->format('d-m-Y h:i a'),
+            'bio'           => $this->bio,
+            'receive_email' => $this->receive_email,
         ];
     }
 }
