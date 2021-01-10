@@ -12,9 +12,9 @@ class NotificationsController extends Controller
     public function getNotifications()
     {
         return [
-            'read'      => auth()->user()->readNotifications,
-            'unread'    => auth()->user()->unreadNotifications,
-            'usertype'  => auth()->user()->roles->first()->name,
+            'read'      => auth()->check() ? auth()->user()->readNotifications : collect([]),
+            'unread'    => auth()->check() ? auth()->user()->unreadNotifications : collect([]),
+            'usertype'  => auth()->check() ? auth()->user()->roles->first()->name : collect([]),
         ];
     }
 
