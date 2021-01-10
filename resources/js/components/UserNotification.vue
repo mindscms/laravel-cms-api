@@ -36,13 +36,16 @@
             }
         },
         created: function () {
-            this.getNotifications();
             let userId = $('meta[name="userId"]').attr('content');
-            Echo.private('App.User.' + userId)
-                .notification((notification) => {
-                    this.unread.unshift(notification);
-                    this.unreadCount++;
-                });
+            if (userId != '') {
+                this.getNotifications();
+
+                Echo.private('App.User.' + userId)
+                    .notification((notification) => {
+                        this.unread.unshift(notification);
+                        this.unreadCount++;
+                    });
+            }
         },
         methods: {
             getNotifications() {
