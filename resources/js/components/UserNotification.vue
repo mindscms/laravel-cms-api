@@ -36,24 +36,27 @@
             }
         },
         created: function () {
-            this.getNotifications();
             let userId = $('meta[name="userId"]').attr('content');
-            Echo.private('App.User.' + userId)
-                .notification((notification) => {
-                    this.unread.unshift(notification);
-                    this.unreadCount++;
-                });
+            if (userId != '') {
+                this.getNotifications();
+
+                Echo.private('App.User.' + userId)
+                    .notification((notification) => {
+                        this.unread.unshift(notification);
+                        this.unreadCount++;
+                    });
+            }
         },
         methods: {
             getNotifications() {
-                axios.get('user/notifications/get').then(res => {
+                axios.get('/user/notifications/get').then(res => {
                     this.read = res.data.read;
                     this.unread = res.data.unread;
                     this.unreadCount = res.data.unread.length;
                 }).catch(error => Exception.handle(error))
             },
             readNotifications(notification) {
-                axios.post('user/notifications/read', {id: notification.id}).then(res => {
+                axios.post('/user/notifications/read', {id: notification.id}).then(res => {
                     this.unread.splice(notification,1);
                     this.read.push(notification);
                     this.unreadCount--;

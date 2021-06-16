@@ -39,13 +39,15 @@
             }
         },
         created: function () {
-            this.getNotifications();
             let adminId = $('meta[name="adminId"]').attr('content');
-            Echo.private('App.User.' + adminId)
-                .notification((notification) => {
-                    this.unread.unshift(notification);
-                    this.unreadCount++;
-                });
+            if (adminId != '') {
+                this.getNotifications();
+                Echo.private('App.User.' + adminId)
+                    .notification((notification) => {
+                        this.unread.unshift(notification);
+                        this.unreadCount++;
+                    });
+            }
         },
         methods: {
             getNotifications() {

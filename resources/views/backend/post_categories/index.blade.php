@@ -3,7 +3,7 @@
 
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex">
-            <h6 class="m-0 font-weight-bold text-primary">Posts</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Posts Categories</h6>
             <div class="ml-auto">
                 <a href="{{ route('admin.post_categories.create') }}" class="btn btn-primary">
                     <span class="icon text-white-50">

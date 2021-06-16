@@ -73,6 +73,17 @@
     <!-- End Single Widget -->
 
     <!-- Start Single Widget -->
+    <aside class="widget category_widget">
+        <h3 class="widget-title">tags</h3>
+        <ul>
+            @foreach($global_tags as $global_tag)
+                <span style="background: #ebebeb none repeat  scroll 0 0; color: #333; display: inline-block; font-size: 12px; line-height: 20px; margin: 5px 5px 0 0; padding: 5px 15px; text-transform: capitalize;"><a href="{{ route('frontend.tag.posts', $global_tag->slug) }}">{{ $global_tag->name }} ({{ $global_tag->posts_count }})</a></span>
+            @endforeach
+        </ul>
+    </aside>
+    <!-- End Single Widget -->
+
+    <!-- Start Single Widget -->
     <aside class="widget archives_widget">
         <h3 class="widget-title">Archives</h3>
         <ul>

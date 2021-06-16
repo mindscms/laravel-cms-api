@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Carbon\Carbon;
@@ -74,7 +75,6 @@ class LoginController extends Controller
 
     }
 
-
     public function redirectToProvider($provider)
     {
         return Socialite::driver($provider)->redirect();
@@ -113,6 +113,7 @@ class LoginController extends Controller
             Image::make($avatar)->save($path, 100);
             $user->update(['user_image' => $filename]);
         }
+        $user->attachRole(Role::whereName('user')->first()->id);
 
         Auth::login($user, true);
 
